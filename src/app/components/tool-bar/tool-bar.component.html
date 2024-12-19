@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="header_container">
+        <mat-card appearance="outlined">
+            <mat-card-content>
+                <div class="first_cont">
+                    <img src="../../../assets/img/education@2x.png" id="edu_id">
+                    <p>bookstore</p>
+                </div>
+                
+
+                <input type="text" placeholder="enter book name" class="searchbox" (keyup)="search($event)">
+
+                <div class="lastcontainer">
+                    <div class="button_container">
+                        <img width="24" height="24" src="https://img.icons8.com/pulsar-line/48/user.png" alt="user"
+                            style="filter: brightness(0) invert(1);" />
+                        <p>Profile</p>
+                    </div>
+
+                    <div class="button_container_1">
+                        <img width="24" height="24" src="https://img.icons8.com/pulsar-line/48/shopping-cart.png"
+                            alt="shopping-cart" style="filter: brightness(0) invert(1);" />
+                        <p>Cart</p>
+                    </div>
+                </div>
+                
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+
+    <app-home></app-home>
+</div>

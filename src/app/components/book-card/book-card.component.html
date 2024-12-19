@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="book"  *ngFor="let item of bookArray | search : filterBook">
+        <div class="img_cont">
+            <img src={{item.url}} >
+        </div>
+        <div>
+            <h4>{{item.title}}</h4>
+            <h5>{{item.author}}</h5>
+            <p>Rs. {{item.price}}</p>
+        </div>
+    </div>
+</div>

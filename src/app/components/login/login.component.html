@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="outerContainer">
+        <div>
+           <img src="../../../assets/img/2766594.png">
+            <p>Online Book Shopping</p>
+        </div>
+        <div class="inner_container">
+            <div class="login_container">
+                <div class="Head_container">
+                    <p id="login_text" [class.active]="isLoginActive" (click)="toggleActive(true)">LOGIN</p>
+                    <p id="singup_text" [class.active]="!isLoginActive" 
+                    (click)="toggleActive(false)">SIGNUP</p>
+                </div>
+
+                <div class="from_container" >
+                    <form *ngIf="isLoginActive" (ngSubmit)="LogIn()">
+                        <input type="text" [(ngModel)]="userEmail" name="email" placeholder="Email Id">
+                        <input type="password" [(ngModel)]="userPassword" name="password" placeholder="password">
+                        <p>Forgot Password?</p>
+                        <button type="submit">Login</button>
+                    </form>
+
+                    <form *ngIf="!isLoginActive" (ngSubmit)="Register()">
+                        <input type="text" [(ngModel)]="userName" name="name" placeholder="name" style="margin-bottom: 4%;">
+                        <input type="text" [(ngModel)]="userEmail" name="email" placeholder="Email Id" style="margin-bottom: 4%;">
+                        <input type="password" [(ngModel)]="userPassword" name="password" placeholder="password" style="margin-bottom: 4%;">
+                        <input type="text" [(ngModel)]="address" name="address" placeholder="address" style="margin-bottom: 4%;">
+                        <button type="submit">SingUp</button>
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
