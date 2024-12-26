@@ -106,3 +106,17 @@ mat-card p {
     color: #FFFFFF;
     opacity: 1;
 }
+
+
+.button_container_1_1{
+    display: flex;
+    
+}
+
+.cart_item_count{
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 3px;
+    color: white;
+    font-size: 12px;
+}

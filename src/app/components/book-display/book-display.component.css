@@ -1,0 +1,99 @@
+.container{
+    overflow: hidden;
+}
+.inner_container {
+    margin: auto;
+    margin-top: 2%;
+    top: 15px;
+    left: 217px;
+    width: 968px;
+    height: 585px;
+    /* UI Properties */
+    opacity: 1;
+    display: flex;
+}
+
+.left_upper_continer {
+    width: 300px;
+    height: 400px;
+    border: 1px solid #878787;
+}
+
+.left_bottom_continer{
+    margin-top: 10%;
+}
+
+.right_container{
+    margin-left: 10%;
+}
+.book_cover {
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 200px;
+    height: 300px;
+}
+
+
+#add_button {
+    margin-left: 12%;
+    width: 114px;
+    height: 38px;
+    font-weight: bold;
+    background: #A03037 0% 0% no-repeat padding-box;
+    color: white;
+    border: 1px solid #A03037;
+}
+
+#wishlist_button {
+    margin-left: 1%;
+    width: 114px;
+    height: 38px;
+    font-weight: bold;
+    background: #1d1d1d 0% 0% no-repeat padding-box;
+    color: white;
+    border: 1px solid #1d1d1d;
+}
+
+h3 {
+    font-size: xx-large;
+    font: normal normal normal Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+}
+
+#author {
+    font-size: large;
+    font: Roboto;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #878787;
+}
+
+#price{
+    font-size: x-large;
+    font: normal normal normal Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    font-weight: bold;
+}
+
+.line{
+    width: 98%;
+    background-color: #878787;
+    height: 1px;
+    border: 1px solid #878787;
+}
+
+#static_book{
+    font: normal normal normal Roboto;
+    color:#878787;
+}
+
+#static_book_details{
+    font: normal normal normal Roboto;
+}
+
+
+mat-form-field {
+    margin-right: 12px;
+}

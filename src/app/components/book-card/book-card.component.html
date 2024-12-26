@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="book"  *ngFor="let item of bookArray | search : filterBook">
-        <div class="img_cont">
+    <div class="book"  *ngFor="let item of bookArray | search : filterBook" >
+        <div class="img_cont" (click)="displyBook(item)">
             <img src={{item.url}} >
         </div>
         <div>

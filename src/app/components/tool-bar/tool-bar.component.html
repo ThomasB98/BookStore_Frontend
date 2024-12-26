@@ -4,9 +4,9 @@
             <mat-card-content>
                 <div class="first_cont">
                     <img src="../../../assets/img/education@2x.png" id="edu_id">
-                    <p>bookstore</p>
+                    <p (click)="closecart()">bookstore</p>
                 </div>
-                
+
 
                 <input type="text" placeholder="enter book name" class="searchbox" (keyup)="search($event)">
 
@@ -17,17 +17,26 @@
                         <p>Profile</p>
                     </div>
 
-                    <div class="button_container_1">
-                        <img width="24" height="24" src="https://img.icons8.com/pulsar-line/48/shopping-cart.png"
-                            alt="shopping-cart" style="filter: brightness(0) invert(1);" />
+                    <div class="button_container_1" (click)="openCart()">
+                        <div class="button_container_1_1">
+                            <div class="cart_icon_container">
+                                <img width="24" height="24"
+                                    src="https://img.icons8.com/pulsar-line/48/shopping-cart.png" alt="shopping-cart"
+                                    style="filter: brightness(0) invert(1);" />
+                            </div>
+                            <div class="cart_item_count">
+                                {{item_inside_cart}}
+                            </div>
+                        </div>
                         <p>Cart</p>
                     </div>
                 </div>
-                
+
             </mat-card-content>
         </mat-card>
     </div>
 
 
-    <app-home></app-home>
+    <app-home [viewCart]="viewcart" displayHome="home_view"></app-home>
+
 </div>

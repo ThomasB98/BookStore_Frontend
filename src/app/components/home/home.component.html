@@ -1,4 +1,8 @@
 <div>
-    <app-book-card [bookArray]="recivedBook"></app-book-card>
+    <app-book-card [bookArray]="recivedBook" (sendBook)="displayBook($event)" *ngIf="!viewCart && displayHome"></app-book-card>
+
+    <app-book-display [recivedbook]="Book" *ngIf="!viewCart && displatBook"></app-book-display>
+
+    <app-cart *ngIf="viewCart"></app-cart>
 </div>
 

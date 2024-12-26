@@ -49,6 +49,8 @@ export class LoginComponent {
             localStorage.setItem("username", username);
             localStorage.setItem("userId", userId);
             localStorage.setItem("token", jwtToken);
+
+            this.router.navigate(['']);
           }
           catch(error){
             console.error('Invalid Token', error);
