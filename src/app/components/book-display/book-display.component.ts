@@ -15,6 +15,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { WishlistService } from '../../service/wishlistService/wishlist.service';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-book-display',
@@ -30,7 +32,8 @@ export class BookDisplayComponent implements OnInit {
   token:any;
   durationInSeconds=10;
   snapBarResponse="";
-  constructor(private router:Router,private cartservice:CartService,private _snackBar:MatSnackBar){
+  constructor(private router:Router,private cartservice:CartService,
+    private _snackBar:MatSnackBar,private _wishListService:WishlistService){
 
   }
   ngOnInit(): void {
@@ -52,6 +55,12 @@ export class BookDisplayComponent implements OnInit {
   
 
   addToCart(book: any) {
+
+    console.log("inside bookdisplay");
+    
+    console.log(book);
+    
+    console.log("outside bookdisplay");
     // Find if the item already exists in the cart
     const existingItemIndex = this.CartItems.findIndex((item: any) => item === book);
   
@@ -74,7 +83,7 @@ export class BookDisplayComponent implements OnInit {
   
     // Create request data for backend API
     const reqData = {
-      bookId: book.bookId,
+      bookId: book.$id,
       quantity: 1,
     };
   
@@ -111,6 +120,31 @@ export class BookDisplayComponent implements OnInit {
     };
 
     this._snackBar.open(message, action, config);
+  }
+
+
+  addTOWishList(book:any){
+    console.log(book);
+    var bookId=book.id;
+    console.log("bookId",bookId);
+    
+    try{
+      this._wishListService.addBook(bookId).subscribe(
+        (res:any)=>{
+          if(res.success){
+            console.log(res);
+            this._snackBar.open("Book added to wishlistg", "close");
+          }
+          else{
+            console.log(res);
+            this._snackBar.open("error occure while addeding book to wishlistg", "close");
+          }
+        }
+      );
+    }catch(error){
+      console.log(error);
+      this._snackBar.open("error occure while addeding book to wishlistg", "close");
+    }
   }
 
 }

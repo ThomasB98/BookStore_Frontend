@@ -1,0 +1,66 @@
+*{
+    background-color: white;
+    margin: 0%;
+}
+.continer {
+    margin: auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.inner_conterner_1{
+    border-bottom: 1px solid black;
+    padding: 10px;
+    border-radius: 1px;
+    opacity: 1;
+}
+
+img {
+    width: 65px;
+    height: 85px;
+    /* UI Properties */
+    background: transparent url('../../../assets/img/book_cover.jpg') 0% 0% no-repeat padding-box;
+    opacity: 1;
+    margin-left: 10%;
+}
+
+.inner_conterner_2{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-top: 1%;
+    border: 1px solid;
+}
+
+.inner_conterner_2_1{
+    width: 30%;
+    margin-left: 10%;
+}
+
+.inner_conterner_2_1_1{
+    display: flex;
+    justify-content: space-between;
+    height: max-content;
+}
+
+
+.order_Details{
+    border: 1px solid black;
+}
+
+.order{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+
+
+p{
+    width: max-content;
+}

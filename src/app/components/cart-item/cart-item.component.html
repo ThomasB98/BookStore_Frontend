@@ -4,24 +4,24 @@
          <img src="../../../assets/img/book_cover.jpg">
     </div>
     <div class="detail_container">
-        <h4>Title</h4>
-        <p id="author">{{book.author}}</p>
+        <h4>{{book.bookTitle}}</h4>
+        <!-- <p id="author">{{book.author}}</p> -->
         <p id="price">Rs. {{book.price}}</p>
 
         <div class="inner_detail_container">
             <div class="quantiy_container">
-                <div class="decress_quantity">
+                <div class="decress_quantity" (click)="decress_quantity(book)">
                     <p>-</p>
                 </div>
                 <div class="quantiy">
                     <p id="quantiy_p">{{book.quantity}}</p>
                 </div>
-                <div class="incress_quantity">
+                <div class="incress_quantity" (click)="increse_quantity(book)">
                     <p>+</p>
                 </div>
             </div>
 
-            <p id="Remove">
+            <p id="Remove" (click)="removeBook(book.id)" >
                 Remove
             </p>
         </div>

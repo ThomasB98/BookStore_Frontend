@@ -1,0 +1,40 @@
+<div class="outer_conatiner">
+    <div class="continer">
+        <div class="inner_conterner_1">
+            <h3>My Orders</h3>
+        </div>
+        <div *ngFor="let data of orderLis" class="order">
+            <div class="order_Details">
+                <p>Order Id : {{data.id}}</p>
+                <p>Order date : {{data.orderDate | date:'yyyy-MM-dd'}}</p>
+                <p>Order status </p>
+                <div [ngSwitch]="data.orderStatus">
+                    <p *ngSwitchCase=0 class="status deliver">DELIVERD</p>
+                    <p *ngSwitchCase=1 class="status canceled ">CANCELED</p>
+                    <p *ngSwitchCase=2 class="status outfordelivery">OUTFORDELIVERY</p>
+                    <p *ngSwitchCase=3 class="status pending">PENDING</p>
+                    <p *ngSwitchCase=4 class="status shipping">SHIPPING.</p>
+                    <p *ngSwitchCase=5 class="status completed">CONFIRM</p>
+                    <p *ngSwitchDefault class="status unknown">❔ Unknown order status.</p>
+                  </div>
+                <hr />
+                <p>TotalAmount : {{data.totalAmount}}</p>
+            </div>
+            <div class="inner_conterner_2" *ngFor="let value of data.items.$values">
+                <div class="img_container">
+                    <img src="../../assets/img/book_cover.jpg">
+                </div>
+
+                <div class="inner_conterner_2_1">
+                    <div class="inner_conterner_2_1_1">
+                        <h3>Title : {{value.book.title}}</h3>
+                        <p>Quantity : {{value.quantity}}</p>
+                    </div>
+
+                    <p>Author : {{value.book.author}}</p>
+                    <h3>Rs. {{value.price}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

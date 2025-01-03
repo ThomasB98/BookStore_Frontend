@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {jwtDecode} from 'jwt-decode';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -14,14 +15,14 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
   
-  constructor(private userService:UserService,private router: Router){}
+  constructor(private userService:UserService,private router: Router,private _snackBar:MatSnackBar){}
 
   userEmail="";
   userName="";
   userPassword="";
   address="";
   isLoginActive = true;
-
+  durationInSeconds=5;
   toggleActive(state: boolean): void {
     this.isLoginActive = state;
   }
@@ -54,17 +55,21 @@ export class LoginComponent {
           }
           catch(error){
             console.error('Invalid Token', error);
+            this.openSnackBar("email or password Incorrect","close");
           }
         }  else{
           console.error('Login failed:', res.message);
+          this.openSnackBar("email or password Incorrect","close");
         }
       },
       (error)=>{
         console.error('Error during login:', error);
+        this.openSnackBar("email or password Incorrect","close");
       });
     }
     else{
       console.log('Form is invalid');
+      this.openSnackBar("email and password can not br empty","close");
     }
   }
 
@@ -103,5 +108,17 @@ export class LoginComponent {
       console.log('Form invalid')
     }
   }
+
+
+    openSnackBar(message: string, action: string) {
+        const config: MatSnackBarConfig = {
+          duration: this.durationInSeconds * 1000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          panelClass: ['custom-snackbar']
+        };
+    
+        this._snackBar.open(message, action, config);
+      }
 
 }

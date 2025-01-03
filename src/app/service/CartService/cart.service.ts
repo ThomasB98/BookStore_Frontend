@@ -85,4 +85,36 @@ export class CartService {
     );
   }
 
+  removeItemcart(id:number){
+    var url="https://localhost:7068/api/Cart/remove/";
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${localStorage.getItem("token")}` // Use Authorization header
+      })
+    };
+
+    return this.http.deleteService(url+id,true,httpOptions).pipe(
+      tap((res:any)=>{
+        if(res.success){
+          this.getItem.emit();
+        }
+      })
+    )
+  }
+
+  updateCartItemQuantity(bookId:number, quantity:number){
+    var reqData={
+      cartItemId:bookId,
+      newQuantity:quantity
+    }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem("token")}` // Use Authorization header
+      })
+    };
+    var url="https://localhost:7068/api/Cart/update-quantity";
+
+    return this.http.putService(url,reqData,true,httpOptions);
+  }
 }

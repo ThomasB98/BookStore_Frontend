@@ -1,0 +1,47 @@
+*{
+    width: 100vw;
+    background: white;
+}
+body{
+    height: auto;
+}
+img{
+    width: 30%;
+    height: 30%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+p {
+    text-align: center; 
+    margin: 0 auto;     
+    width: 80%;         
+}
+
+button{
+    width: 200px;
+    height: 35px;
+    /* UI Properties */
+    background: #3371B5 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+}

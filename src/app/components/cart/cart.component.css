@@ -22,4 +22,39 @@
 mat-expansion-panel{
     margin: auto;
     width: 60%;
+    border: none;
+    border-radius: 0%;
+}
+
+
+.inner_container_3{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 3%;
+    justify-content: flex-end;
+    justify-items: flex-end;
+    background-color: #3371B5;
+}
+button{
+    width: 160px;
+    height: 35px;
+    background: #3371B5 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    color: azure;
+    font-weight: bold;
+}
+
+
+.addAdress{
+    background: transparent;
+    color: red;
+    border: 1px solid red;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease; 
+}
+
+.addAdress:hover {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }

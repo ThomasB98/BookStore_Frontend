@@ -32,4 +32,21 @@ export class AuthService {
     if (!token) return false;
     return !this.isTokenExpired(token);
   }
+
+  getUserId(){
+    return localStorage.getItem("userId");
+  }
+
+  getUserRole(): string | null {
+    const token = this.getToken();
+    if (!token) return null;
+
+    try {
+      const decoded: any = jwtDecode(token);
+      return decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] || null;
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return null;
+    }
+  }
 }

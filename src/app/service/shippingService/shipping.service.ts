@@ -9,6 +9,7 @@ import { tap } from 'rxjs';
 export class ShippingService {
 
   userAddressList = new EventEmitter<void>();
+  NewAddressAdded = new EventEmitter<void>();
   constructor(private http: HttpService) { }
 
   getAddressByUserId() {
@@ -29,5 +30,25 @@ export class ShippingService {
       })
     )
 
+  }
+
+
+  addNewAddress(reqData:any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "content-type":"application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      })
+    };
+
+    var url="https://localhost:7068/api/Shipping/add";
+
+    return this.http.PostMethod(url,reqData,true,httpOptions).pipe(
+      tap((res: any) => {
+        if (res.success) {
+          this.NewAddressAdded.emit();
+        }
+      })
+    )
   }
 }

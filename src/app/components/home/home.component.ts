@@ -11,9 +11,10 @@ import { CartComponent } from "../cart/cart.component";
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit,OnChanges {
 
   @Input() viewCart=false;
+  
 
   recivedBook:any[]=[];
 
@@ -22,6 +23,10 @@ export class HomeComponent implements OnInit {
   displatBook=false;
   
   constructor(private bookService:BookService) {
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.displatBook=false;
+    this.displayHome=true;
   }
 
   

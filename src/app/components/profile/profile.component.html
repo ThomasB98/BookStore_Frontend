@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="breadcrumb">
+        <a href="#">Home</a> / <a href="#">Profile</a>
+    </div>
+
+    <h2>Personal Details 
+        <!-- <span class="edit-link" (click)="toggleEditPD()">
+        {{ isEditablePD ? 'Save' : 'Edit' }}
+    </span>--></h2> 
+
+    <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName"   [(ngModel)]="fullName"  [disabled]="!isEditablePD">
+    </div>
+    <div class="form-group">
+        <label for="email">Email Id</label>
+        <input type="email" id="email" [(ngModel)]="email" [disabled]="!isEditablePD">
+    </div>
+
+    <div class="address-section">
+        <div class="address-header">
+            <h2>Address Details</h2>
+            <button class="add-address-btn" (click)="AddAddress()">Add New Address</button>
+        </div>
+        <div class="address-item">
+            <h3> ADD ADDRESSS 
+                <span class="edit-link" (click)="toggleEditAD()">
+                    {{ isEditableAD ? 'Save' : 'Edit' }}
+                </span></h3>
+            <p>Address</p>
+            <div class="form-group">
+                <input type="text" [(ngModel)]="AddressLane1" [disabled]="!isEditableAD">
+                <input type="text" [(ngModel)]="AddressLane2" [disabled]="!isEditableAD">
+            </div>
+            <div class="form-group">
+                <input type="text" [(ngModel)]="city" [disabled]="!isEditableAD">
+                <input type="text" [(ngModel)]="state" [disabled]="!isEditableAD">
+                <input type="text" [(ngModel)]="pincode" [disabled]="!isEditableAD">
+            </div>
+        </div>
+    </div>
+</div>

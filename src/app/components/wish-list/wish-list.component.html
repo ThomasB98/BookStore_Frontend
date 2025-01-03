@@ -1,0 +1,22 @@
+<div class="outer_conatiner">
+    <div class="continer">
+        <div class="inner_conterner_1">
+            <h3>My Wishlist {{length}}</h3>
+        </div>
+        <div class="inner_conterner_2" *ngFor="let item of wishlist">
+            <div class="img_container">
+                <img src="../../assets/img/book_cover.jpg">
+            </div>
+    
+            <div class="inner_conterner_2_1">
+                <div class="inner_conterner_2_1_1">
+                    <h3>Title : {{item.title}}</h3>
+                    <p (click)="removeItem(item)" style="color: red;">Remove</p>
+                </div>
+    
+                <p>Author :{{item.author}}</p>
+                <h3>Rs. {{item.price}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

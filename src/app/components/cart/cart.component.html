@@ -1,9 +1,9 @@
-<div class="contianer">
+<div class="contianer" >
   <div class="inner_container_1">
     <p>My cart (10)</p>
     <mat-form-field>
       <mat-label>Select Address</mat-label>
-      <mat-select>
+      <mat-select [(ngModel)]="selectedAddress" (selectionChange)="onAddressSelected($event)">
         @for (address of shippingAddress; track address) {
         <mat-option [value]="address.$id">{{address.addressLine1}} {{address.city}} {{address.pincode}}</mat-option>
         }
@@ -13,24 +13,20 @@
 
   <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
     <mat-expansion-panel-header>
-      <mat-panel-title> Books Details </mat-panel-title>
-      <mat-panel-description>
-        Expand {{panelOpenState() ? 'open' : 'closed'}}
-      </mat-panel-description>
+      <mat-panel-title> CART ITEMS </mat-panel-title>
     </mat-expansion-panel-header>
-    <app-cart-item [cartItems]="cartItem"></app-cart-item>
+    <app-cart-item [cartItems]="cartItem" (RemoveBook)="removeBookFromCart($event)"></app-cart-item>
   </mat-expansion-panel>
 
+  <br>
   
 
   <div class="inner_container_2">
     <mat-accordion>
       <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
         <mat-expansion-panel-header>
-          <mat-panel-title> Customer Details </mat-panel-title>
-          <mat-panel-description>
-            Expand {{panelOpenState() ? 'open' : 'closed'}}
-          </mat-panel-description>
+          <mat-panel-title> CUSTOMER DETAILS </mat-panel-title>
+          
         </mat-expansion-panel-header>
         
           <form class="example-form">
@@ -39,14 +35,14 @@
                 <td>
                   <mat-form-field class="example-full-width">
                     <mat-label>First name</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="fName" name="fName">
                   </mat-form-field>
                 </td>
 
                 <td>
                   <mat-form-field class="example-full-width">
                     <mat-label>Long Last Name That Will Be Truncated</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="lname" name="lname">
                   </mat-form-field>
                 </td>
               </tr>
@@ -55,11 +51,11 @@
             <p>
               <mat-form-field class="example-full-width">
                 <mat-label>Address</mat-label>
-                <textarea matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
+                <textarea matInput [(ngModel)]="addresslane1" name="addressLane1" placeholder="Ex. 100 Main St"></textarea>
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <mat-label>Address 2</mat-label>
-                <textarea matInput></textarea>
+                <mat-label >Address lane 2</mat-label>
+                <textarea matInput [(ngModel)]="addresslane2" name="addressLane2" placeholder="Ex. 100 Main St"></textarea>
               </mat-form-field>
             </p>
 
@@ -67,22 +63,30 @@
               <tr>
                 <td><mat-form-field class="example-full-width">
                   <mat-label>City</mat-label>
-                  <input matInput placeholder="Ex. San Francisco">
+                  <input matInput  [(ngModel)]="city" name="city" placeholder="Ex. San Francisco">
                 </mat-form-field></td>
                 <td><mat-form-field class="example-full-width">
                   <mat-label>State</mat-label>
-                  <input matInput placeholder="Ex. California">
+                  <input matInput  [(ngModel)]="state" name="state" placeholder="Ex. California">
                   </mat-form-field></td>
                 <td><mat-form-field class="example-full-width">
                   <mat-label>Postal Code</mat-label>
-                  <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
-                  <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                  <input matInput #postalCode  [(ngModel)]="pincode" name="postalCode" maxlength="6" placeholder="Ex. 94105" value="94043">
+                  <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
                 </mat-form-field></td>
+
+                <td>
+                  <button class="addAdress" (click)="AddAddress()">Add Address</button>
+                </td>
               </tr>
             </table>
           </form>
         
       </mat-expansion-panel>
     </mat-accordion>
+  </div>
+
+  <div class="inner_container_3">
+    <button (click)="PlaceOrder()">CHECKOUT</button>
   </div>
 </div>

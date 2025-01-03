@@ -1,4 +1,6 @@
 <div class="container">
+
+    
     <div class="header_container">
         <mat-card appearance="outlined">
             <mat-card-content>
@@ -12,9 +14,18 @@
 
                 <div class="lastcontainer">
                     <div class="button_container">
-                        <img width="24" height="24" src="https://img.icons8.com/pulsar-line/48/user.png" alt="user"
-                            style="filter: brightness(0) invert(1);" />
-                        <p>Profile</p>
+                        <button mat-button [matMenuTriggerFor]="menu">
+                            <img width="24" height="24" src="https://img.icons8.com/pulsar-line/48/user.png" alt="user"
+                                style="filter: brightness(0) invert(1);" />
+                            <p>Profile</p>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item  *ngIf="!userLoggeIn" (click)="logIn()">Login</button>
+                            <button mat-menu-item *ngIf="userLoggeIn" (click)="openWishlist()">WhishList</button>
+                            <button mat-menu-item *ngIf="userLoggeIn" (click)="openOrderlist()">Order</button>
+                            <button mat-menu-item (click)="Logout()" *ngIf="userLoggeIn">Logout</button>
+                            <button mat-menu-item *ngIf="userLoggeIn" (click)="enableProfile()">Profile</button>
+                        </mat-menu>
                     </div>
 
                     <div class="button_container_1" (click)="openCart()">
@@ -36,7 +47,16 @@
         </mat-card>
     </div>
 
+    <app-profile *ngIf="viewProfile"></app-profile>
+    <app-display-wish-list *ngIf="displayWishList">
+        
+    </app-display-wish-list>
 
-    <app-home [viewCart]="viewcart" displayHome="home_view"></app-home>
+    <app-dsiplay-order *ngIf="displayOrderList">
+
+    </app-dsiplay-order>
+
+
+    <app-home [viewCart]="viewcart" displayHome="home_view" *ngIf="!displayWishList && !displayOrderList && !viewProfile"></app-home>
 
 </div>
